@@ -4,7 +4,7 @@
   <p>Voici notre catalgue, en vous souhaitant une bonne navigation sur notre market place.</p>
   <Suspense>
     <template #default>
-      <LoadCatalog />
+      <LoadProducts />
     </template>
     <template #fallback>
       Don't worry, It's become...
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import LoadCatalog from '@/components/LoadCatalog'
+  import LoadProducts from '@/components/LoadCatalog'
   import MyHeader from '@/components/MyHeader'
   import MyNav from '@/components/MyNav'
   

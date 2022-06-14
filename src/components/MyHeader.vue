@@ -16,14 +16,16 @@ export default {
 
 <style lang="scss" scoped>
   header {
-    border: 1 px solid red;
-      & h1 {
-      margin-right: 1%;
-      display: inline;
-      color: rgb(22, 141, 22);
-      }
-      & img {
-        width: 40px;
-      }
+    border: 2px solid green;
+    margin: 2%;
+    padding:2%;
+    & h1 {
+    margin-right: 1%;
+    display: inline;
+    color: rgb(26, 123, 26);
+    }
+    & img {
+      width: 40px;
+    }
   }
 </style>

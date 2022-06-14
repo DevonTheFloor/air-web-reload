@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
   #nav {
-    padding: 30px;
+    padding: 10px;
       & a {
         font-weight: bold;
         color: #2c3e50;
