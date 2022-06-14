@@ -2,7 +2,7 @@
   <nav id="nav">
     <ul>
       <li>
-        <router-link to="/">Home</router-link> 
+        <router-link to="/">Accueil</router-link> 
       </li>
       <li>
         <router-link to="/notre-catalogue">Notre Catalogue</router-link> 

@@ -25,7 +25,7 @@ export default {
     color: rgb(26, 123, 26);
     }
     & img {
-      width: 40px;
+      width: 30px;
     }
   }
 </style>

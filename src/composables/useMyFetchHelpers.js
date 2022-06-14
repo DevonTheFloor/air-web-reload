@@ -4,8 +4,8 @@ export default function useMyGet() {
 
   const resGet = ref({})
 
-  const myGet = async () => {
-    let response = await fetch('http://localhost:3003/categories')
+  const myGet = async (url) => {
+    let response = await fetch(url)
     if (!response.ok) {
       throw new Error(`Erreur transmission requête. Statut : ${response.status}`)
     }
@@ -18,7 +18,7 @@ export default function useMyGet() {
     
   }
 }
-
+//'http://localhost:3003/categories'
   
 /*async function myGet(url) {
     let response = await fetch(url)

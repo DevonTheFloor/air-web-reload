@@ -21,6 +21,11 @@ const routes = [
     path: '/votre-panier',
     name: 'YourCart',
     component: () => import(/* webpackChunkName: "YourCart" */ '../views/YourCart.vue')
+  },
+  {
+    path: '/categorie/:label/:id',
+    name: 'OneCategorie',
+    component: () => import(/* webpackChunkName: "OneCategorie" */ '../views/OneCategorie.vue')
   }
 ]
 

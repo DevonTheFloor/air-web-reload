@@ -1,10 +1,16 @@
 <template>
-  <ul v-for="res in resGet" :key="res.id" class="categories">
+  <ul v-for="res in resGet" :key="res.label" class="categories">
     <li>
       <details open>
       <summary><strong>{{ res.label }}</strong></summary>
       <p>{{ res.description }}</p>
-      <button>SELECTIONNER </button>
+      <router-link :to="{
+        name: 'OneCategorie', 
+        params:{label: res.label, id: res.id}
+        }"
+      >
+        <button>SELECTIONNER</button>
+      </router-link>
       </details>
     </li>
   </ul>
@@ -14,9 +20,8 @@
 import  useMyGet from '@/composables/useMyFetchHelpers'
 
 const { resGet, myGet} = useMyGet()
-myGet()
-.then((resp) => {return resp.json})
-.then(datas => resGet.value = datas)
+myGet('http://localhost:3000/categories')
+//.then(datas => resGet.value = datas)
 
 </script>
 
@@ -58,9 +63,9 @@ myGet()
     & p {
       margin: 2%;
     }
-    &:hover {
-      cursor: pointer;
-    }
+    
   }
-
+  router-link {
+    color: whitesmoke;
+  }
 </style>
