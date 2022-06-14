@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*const data = [{
+    "id": "1",
+    "index": 1,
+    "label": "Titres Unitaires",
+    "description": "Correspondances illimitées dans l'heure suivant la première validation."
+  },
+  {
+    "id": "2",
+    "index": 3,
+    "label": "Abonnements",
+    "description": "Validations illimité dans la periode de l'abonnement. Attention, la validation reste obligatoire à chaque montée."
+  },
+
+  {
+    "id": "3",
+    "index": 2,
+    "label": "Parking+Transport",
+    "description": "Titre Éco+ Afin de limiter la quantité de voitures dans le centre-ville, nous proposont un ensemble de 48 parkings dans la périphérie. Chaque ticket vous permetra d'accéder au parking ainsi que faire un voyage aller et retourn sur notre réseau. Ces tickets sont également en vente à l'entrée des parking."
+  }
+]*/
+function reqListener () {
+  console.log(this.responseText);
+}
+
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.open("get", "./data/categories.json", true);
+oReq.send();
+const get = fetch("./data/categories.json")
+get
+.then(resp => {return resp.json()})
+.then((datas => console.log('datas :', datas)))
+    </script>>
+</body>
+</html>

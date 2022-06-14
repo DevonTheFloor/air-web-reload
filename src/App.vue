@@ -1,8 +1,9 @@
 <template>
   <MyNav />
-  <Transition name="moveUp">
+  <!--<Transition name="moveUp">
     <router-view/>
-  </Transition>
+  </Transition>-->
+  <router-view />
 </template>
 
 <style>
