@@ -1,5 +1,5 @@
 <template>
-  <ul v-for="res in resGet" :key="res.label" class="categories">
+  <ul v-for="res in resGet" :key="res" class="categories">
     <li>
       <details open>
       <summary><strong>{{ res.label }}</strong></summary>
@@ -13,7 +13,7 @@
       </router-link>
       </details>
     </li>
-  </ul>
+  </ul><pre> {{ resGet }} </pre>
 </template>
 
 <script setup>
@@ -21,8 +21,6 @@ import  useMyGet from '@/composables/useMyFetchHelpers'
 
 const { resGet, myGet} = useMyGet()
 myGet('http://localhost:3000/categories')
-//.then(datas => resGet.value = datas)
-
 </script>
 
 <style lang="scss" scoped>

@@ -2,12 +2,12 @@
   <h2>{{ this.$route.params.label }}</h2>
   <div>
     <ul>
-      <li v-for="res in resGet" :key="res.id" class="categories" :id="'list' +res.id">
+      <li v-for="res in resGet" :key="res" class="categories" :id="'list' +res.id">
         <p>{{ res.description }}</p>
         <p class="price">
           <strong>{{ res.price/100 }} €</strong> 
         </p>
-        <button :class="'btn'+index" @click="addCart">ACHETER</button>
+        <button :class="'btn'+index" @click="addCart(res.id)">ACHETER</button>
       </li>
     </ul>
   </div>
@@ -23,15 +23,19 @@
 
   const route = useRoute()
   const cart = ref([]);
-  const catid = route.params.id
+  const catid = route.params.catid
   const { resGet, myGet } = useMyGet()
   myGet(`http://localhost:3000/products/${catid}`)
 
   console.log('cart :', cart)
   const store = useStore()
-  const addCart = () => {
+  const addCart = (productId) => {
+    console.log('product id: ',productId)
+    myGet(`http://localhost:3000/products/${productId}`)
+    console.log('res get from add CART: ', resGet)
     store.commit('addCart')
     console.log('store :', store.state.cart)
+    console.log('prod ID: ', productId)
     Swal.fire({
       icon: 'success',
       title: 'Cet article a été ajouter à votre panier',

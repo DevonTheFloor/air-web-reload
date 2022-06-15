@@ -15,6 +15,9 @@
       <li>
         <router-link to="/login">Login</router-link> 
       </li>
+      <li>
+        <router-link to="/tous-nos-produits">Tous Nos Produits</router-link> 
+      </li>
     </ul>
   </nav>
 </template>
