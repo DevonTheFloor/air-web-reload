@@ -1,27 +1,30 @@
 <template>
-  <ul v-for="res in resGet" :key="res" class="categories">
+  <!--<ul class="categories">
     <li>
-      <summary></summary>
-      <h2>{{ res.label }}</h2>
-      <p> ID categorie: {{ res.id }} </p>
-      <router-link :to="{
-        name: 'DetailsCategory', 
-        params:{id: res.id}
-        }"
-      >
-        <button>SELECTIONNER</button>
-      </router-link>
+      <details>
+        <summary><strong>{{ resGet.label }}</strong></summary>
+        <p> {{ resGet.description }} </p>
+        <router-link :to="{
+          name: 'OneCategorie', 
+          params:{label: res.label, id: res.id}
+          }"
+        >
+          <button>SELECTIONNER</button>
+        </router-link>
+      </details>
     </li>
-  </ul>
-  <pre> {{ resGet }} </pre>
+  </ul>--><pre> {{ resGet }} </pre>
 </template>
 
 <script setup>
-import  useMyGet from '@/composables/useMyFetchHelpers'
+  import { useRoute } from 'vue-router'
+  import  useMyGet from '@/composables/useMyFetchHelpers'
 
-const { resGet, myGet} = useMyGet()
-myGet('http://localhost:3000/categories')
-console.log('res get :', resGet.value)
+  const route = useRoute()
+  const id = route.params.id
+  console.log('product ID: ', id)
+  const { resGet, myGet} = useMyGet()
+  myGet(`http://localhost:3000/products/${id}`)
 </script>
 
 <style lang="scss" scoped>

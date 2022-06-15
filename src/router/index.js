@@ -8,9 +8,29 @@ const routes = [
     component: Home
   },
   {
-    path: '/notre-catalogue',
+    path: '/notre-catalogue',//avec toutes les categories
     name: 'OurCatalog',
     component: () => import(/* webpackChunkName: "OurCatalog" */ '../views/OurCatalog.vue')
+  },
+  {
+    path: '/categorie/:id',//avec toutes les categories
+    name: 'DetailsCategory',
+    component: () => import(/* webpackChunkName: "DetailsCategory" */ '../views/DetailsCategory.vue')
+  },
+  {
+    path: '/liste-de-categorie/:id',//avec toutes les categories
+    name: 'AllProductsInCategory',
+    component: () => import(/* webpackChunkName: "AllProductsInCategory" */ '../views/AllProductsInCategory.vue')
+  },
+  {
+    path: '/tous-nos-produits',
+    name: 'AllProducts',
+    component: () => import(/* webpackChunkName: "AllProducts" */ '../views/AllProducts.vue')
+  },
+  {
+    path: '/produit/:id',
+    name: 'DetailsProduct',
+    component: () => import(/* webpackChunkName: "DetailsProduct" */ '../views/DetailsProduct.vue')
   },
   {
     path: '/login',
@@ -22,16 +42,7 @@ const routes = [
     name: 'YourCart',
     component: () => import(/* webpackChunkName: "YourCart" */ '../views/YourCart.vue')
   },
-  {
-    path: '/categorie/:catid',
-    name: 'OneCategorie',
-    component: () => import(/* webpackChunkName: "OneCategorie" */ '../views/OneCategorie.vue')
-  },
-  {
-    path: '/tous-nos-produits',
-    name: 'AllProducts',
-    component: () => import(/* webpackChunkName: "AllProducts" */ '../views/AllProducts.vue')
-  }
+  
 ]
 
 const router = createRouter({
