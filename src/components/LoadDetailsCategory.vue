@@ -1,11 +1,12 @@
 <template>
-  <ul class="categories">
+   <ul class="categories">
     <li>
+      <h2> {{ resGet.label}} </h2>
       <details open>
         <summary><strong>{{ resGet.label }}</strong></summary>
         <p> {{ resGet.description }} </p>
         <p>Id de categorie:  {{ resGet.id }}</p>
-        <router-link :to="{
+       <router-link :to="{
           name: 'AllProductsInCategory', 
           params:{ id: resGet.id}
           }"
@@ -15,7 +16,6 @@
       </details>
     </li>
   </ul>
-  <pre> {{ resGet }} </pre>
 </template>
 
 <script setup>
