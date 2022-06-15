@@ -1,29 +1,44 @@
 <template>
   <h2>{{ this.$route.params.label }}</h2>
-  <div v-for="res in resGet" :key="res.id" class="categories">
+  <div>
     <ul>
-      <li>
+      <li v-for="res in resGet" :key="res.id" class="categories" :id="'list' +res.id">
         <p>{{ res.description }}</p>
         <p class="price">
           <strong>{{ res.price/100 }} €</strong> 
         </p>
+        <button :class="'btn'+index" @click="addCart">ACHETER</button>
       </li>
     </ul>
-    <button>ACHETER</button>
   </div>
+  <pre> {{ resGet }} </pre>
 </template>
 
 <script setup>
+  import Swal from 'sweetalert2'
+  import {useStore} from 'vuex'
   import { useRoute } from 'vue-router'
+  import { ref } from 'vue'
   import  useMyGet from '@/composables/useMyFetchHelpers'
 
   const route = useRoute()
-  const label = route.params.label
+  const cart = ref([]);
   const catid = route.params.id
-  console.log('id cat :', label)
-  //console.log('id cat', idCat)
   const { resGet, myGet } = useMyGet()
   myGet(`http://localhost:3000/products/${catid}`)
+
+  console.log('cart :', cart)
+  const store = useStore()
+  const addCart = () => {
+    store.commit('addCart')
+    console.log('store :', store.state.cart)
+    Swal.fire({
+      icon: 'success',
+      title: 'Cet article a été ajouter à votre panier',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -36,14 +51,14 @@
     margin:2% auto;
     padding:2%;
     max-width:70%;
-    & li {
-      list-style: none;
-    }
-    & img {
-      display: initial;
-    }
+    list-style: none;
     & .price {
       color: green
+    }
+    button {
+      background-color: rgb(62, 177, 62);
+      border-radius: 5px;
+      color: whitesmoke;
     }
   }
 </style>

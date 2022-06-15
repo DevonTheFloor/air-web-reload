@@ -8,7 +8,9 @@
         <router-link to="/notre-catalogue">Notre Catalogue</router-link> 
       </li>
       <li>
-        <router-link to="/votre-panier">Votre Panier</router-link> 
+        <router-link to="/votre-panier">
+          Votre Panier
+        </router-link><span id="co-cart">{{ cart }}</span>
       </li>
       <li>
         <router-link to="/login">Login</router-link> 
@@ -17,10 +19,15 @@
   </nav>
 </template>
 
-<script>
-export default {
+<script setup>
 
-}
+import {useStore} from 'vuex'
+import { computed } from 'vue'
+
+const store = useStore()
+const cart = computed(() => store.state.cart)
+console.log('cart in nav :', cart)
+
 </script>
 
 <style lang="scss" scoped>
@@ -44,5 +51,8 @@ export default {
     margin: auto;
     }
   }
-
+  #co-cart {
+    color: green;
+    font-size: 30px;
+  }
 </style>
