@@ -5,7 +5,7 @@ const prods = require('../data/products.json')
 exports.getAllCategories = (req, res, next) => {
   setTimeout(()=> {
     res.send(cates);
-  }, 800)
+  }, 400)
 }
 
 exports.getOneCategory = (req, res, next) => {
@@ -20,12 +20,12 @@ exports.getProductsInCategory = (req, res, next) => {
   console.log('idcat :',idcat)
   const result = prods.filter(prod => prod.category_id == idcat)
   console.log('by idcat :', result)
-  setTimeout(() => res.send(result), 1500)
+  setTimeout(() => res.send(result), 400)
 }
 
 exports.getAllProducts = (req, res, next) => {
   setTimeout(() => res.send(prods)
-  , 800
+  , 400
   )
 }
 exports.getProductById = (req, res, next) => {

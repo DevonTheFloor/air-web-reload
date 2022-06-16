@@ -13,7 +13,7 @@
         </router-link><span id="co-cart">{{ cart }}</span>
       </li>
       <li>
-        <router-link to="/login">Login</router-link> 
+        <router-link to="/login">{{login}}</router-link> 
       </li>
       <li>
         <router-link to="/tous-nos-produits">Tous Nos Produits</router-link> 
@@ -26,8 +26,16 @@
 
 import {useStore} from 'vuex'
 import { computed } from 'vue'
-
 const store = useStore()
+const user = store.state.user
+const logged = store.state.login
+const login = computed(()=> {
+  if(logged == false ) {
+    return "Se Connecter"
+  } else {
+    return user
+    }
+  })
 const cart = computed(() => store.state.cart)
 
 </script>
