@@ -57,12 +57,22 @@ const cart = computed(() => store.state.cart)
     display: flex;
     flex-direction: row;
     & li {
-        margin: 5px;
-    margin: auto;
+      margin: 5px;
+      margin: auto;
     }
   }
   #co-cart {
     color: rgb(57, 189, 206);
     font-size: 30px;
   }
+  @media (max-width: 600px) {
+    #nav ul{
+      flex-direction: column;
+      margin: 5%;
+      & li {
+        margin: 2%;
+      }
+    }
+   }
+
 </style>

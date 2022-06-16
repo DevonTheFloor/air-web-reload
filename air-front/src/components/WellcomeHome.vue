@@ -37,5 +37,15 @@ a {
 }
 .hello {
   padding: 2%;
+  & img {
+  }
 }
+@media (max-width: 600px) {
+  .hello {
+    & img {
+      max-width:100%;
+    }
+}
+   }
+
 </style>
