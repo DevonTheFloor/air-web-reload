@@ -18,14 +18,10 @@
   import useMyFetch from '@/composables/useMyFetchHelpers'
   const store = useStore()
   const {resGet, myGet} = useMyFetch()
-  console.log('store :', store.state.cart)
   myGet('http://localhost:3000/products')
   const addCart = (idProduct) => {
-    console.log('[products]:',store.state.products)
     store.commit('addCart')
-    store.commit('saveProduct', idProduct)
-    
-    console.log('[products]:',store.state.products)
+    store.commit('saveProduct', idProduct)   
     Swal.fire({
       icon: 'success',
       title: 'Merci',

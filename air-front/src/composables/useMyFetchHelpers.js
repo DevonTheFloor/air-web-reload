@@ -30,14 +30,4 @@ export default function useMyFetch() {
     
   }
 }
-//'http://localhost:3003/categories'
-  
-/*async function myGet(url) {
-    let response = await fetch(url)
-    if (!response.ok) {
-      throw new Error(`Erreur transmission requête. Statut : ${response.status}`)
-    }
-    return await response.json()
-  }*/
-
   

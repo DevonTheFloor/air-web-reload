@@ -23,7 +23,6 @@
 
   const route = useRoute()
   const id = route.params.id
-  console.log('categorie ID: ', id)
   const { resGet, myGet} = useMyGet()
   myGet(`http://localhost:3000/categories/${id}`)
 </script>

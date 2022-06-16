@@ -25,17 +25,14 @@
   const cat = route.params.cat
 
   const addCart = (idProduct) => {
-    console.log('[products]:',store.state.products)
     store.commit('addCart')
     store.commit('saveProduct', idProduct)
     
-    console.log('[products]:',store.state.products)
     Swal.fire({
       icon: 'success',
       title: 'Merci',
       text: 'Cet article est bien ajouté à votre panier',
     })
-      console.log('id product: ',idProduct)
   }
 
   const { resGet, myGet} = useMyFetch()

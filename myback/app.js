@@ -12,11 +12,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-
-app.use("/api/coucou",(req,res,next)=>{
-  res.status(200).json({message:"A que COUCOU !!"});
-});
-
 app.use('/', airRoutes);
 
 

@@ -19,7 +19,6 @@ import  useMyGet from '@/composables/useMyFetchHelpers'
 
 const { resGet, myGet} = useMyGet()
 myGet('http://localhost:3000/categories')
-console.log('res get :', resGet.value)
 </script>
 
 <style lang="scss" scoped>
