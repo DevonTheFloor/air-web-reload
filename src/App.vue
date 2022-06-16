@@ -1,9 +1,9 @@
 <template>
   <MyNav />
   <!--<Transition name="moveUp">
-    <router-view/>
+    <router-view :key="$route.path"/>
   </Transition>-->
-  <router-view />
+  <router-view :key="$route.path"/>
 </template>
 
 <style>
@@ -22,7 +22,7 @@
     opacity: 0;
   }
   50% {
-    opacity: 0.5
+    opacity: 0.5;
   }
   100% {
     opacity: 1;

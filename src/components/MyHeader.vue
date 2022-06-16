@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-        <h1>Air-Web MarketPLace</h1>
+        <h1></h1>
         <img alt="Vue logo" src="../assets/logo.png">
     </header>
   </div>
@@ -16,16 +16,22 @@ export default {
 
 <style lang="scss" scoped>
   header {
-    border: 2px solid green;
-    margin: 2%;
-    padding:2%;
+    border: 2px solid blue;
+    max-width: 100%;
+    background-image: url('../assets/images/airban.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150px;
     & h1 {
     margin-right: 1%;
     display: inline;
-    color: rgb(26, 123, 26);
+    color:white;
+    font-size:3em;
+    padding: 2%;
     }
     & img {
-      width: 30px;
+      width: 140px;
+      padding-top: 2%;
     }
   }
 </style>

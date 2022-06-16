@@ -13,12 +13,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "OurCatalog" */ '../views/OurCatalog.vue')
   },
   {
-    path: '/categorie/:id',//avec toutes les categories
+    path: '/categorie/:id',
     name: 'DetailsCategory',
     component: () => import(/* webpackChunkName: "DetailsCategory" */ '../views/DetailsCategory.vue')
   },
   {
-    path: '/liste-de-categorie/:id',//avec toutes les categories
+    path: '/liste-de-categorie/:idcat/:cat',//avec toutes les categories
     name: 'AllProductsInCategory',
     component: () => import(/* webpackChunkName: "AllProductsInCategory" */ '../views/AllProductsInCategory.vue')
   },

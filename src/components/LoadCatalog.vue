@@ -3,7 +3,6 @@
     <li>
       <summary></summary>
       <h2>{{ res.label }}</h2>
-      <p> ID categorie: {{ res.id }} </p>
       <router-link :to="{
         name: 'DetailsCategory', 
         params:{id: res.id}
@@ -13,7 +12,6 @@
       </router-link>
     </li>
   </ul>
-  <pre> {{ resGet }} </pre>
 </template>
 
 <script setup>
@@ -30,14 +28,14 @@ console.log('res get :', resGet.value)
     max-width: 70%;
     margin: 3% auto;
     padding:1%;
-    border: 2px solid rgb(57, 206, 107);
+    border: 2px solid rgb(57, 189, 206);
     border-radius: 5px;
     list-style: none;
     & li {
       margin: 4%;
     }
     &:hover {
-      box-shadow: 12px 12px 2px 1px rgba(8, 102, 3, 0.2);
+      box-shadow: 12px 12px 2px 1px rgba(3, 102, 95, 0.2);
     }
     & p {
       margin: 2%;
@@ -45,7 +43,7 @@ console.log('res get :', resGet.value)
     }
     button{
       min-width: 15%;
-      background-color: green;
+      background-color: rgb(74, 134, 231);
       color: whitesmoke;
       border-radius: 5px;
       padding: 1%;

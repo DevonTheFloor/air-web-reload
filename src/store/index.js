@@ -4,7 +4,8 @@ export default createStore({
   state () {
     return {
       cart: 0,
-      products: []
+      products: [],
+      listing: null
     }
   },
   mutations: {
@@ -16,6 +17,7 @@ export default createStore({
     }
   },
   actions: {
+    
   },
   modules: {
   }

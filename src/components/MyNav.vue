@@ -29,7 +29,6 @@ import { computed } from 'vue'
 
 const store = useStore()
 const cart = computed(() => store.state.cart)
-console.log('cart in nav :', cart)
 
 </script>
 
@@ -40,7 +39,7 @@ console.log('cart in nav :', cart)
         font-weight: bold;
         color: #2c3e50;
         &.router-link-exact-active {
-          color: #42b983;
+          color: rgb(57, 189, 206);
         }
       }
   }
@@ -55,7 +54,7 @@ console.log('cart in nav :', cart)
     }
   }
   #co-cart {
-    color: green;
+    color: rgb(57, 189, 206);
     font-size: 30px;
   }
 </style>

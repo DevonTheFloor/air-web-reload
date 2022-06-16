@@ -1,11 +1,11 @@
 <template>
   <div>
-      <p> {{ this.$store.state.products }} </p>
+      <p> <pre>{{ this.$store.state.products }}</pre> </p>
     <ul v-for="res in resGet" :key="res.id">
       <li> <h2>{{ res.label }}</h2></li>
       <li><strong> {{ res.price/100 }} €</strong> </li>
       <details>
-        <summary>Descrition du produit</summary>
+        <summary>Description du produit</summary>
         <p> {{ res.description }} </p>
         <button @click="addCart(res.id)">Ajouter Au Panier</button>
       </details>
@@ -16,46 +16,46 @@
 <script setup>
   import Swal from 'sweetalert2'
   import { useStore } from 'vuex'
-  import useMyGet from '@/composables/useMyFetchHelpers'
-
+  import useMyFetch from '@/composables/useMyFetchHelpers'
+  //import {ref} from 'vue'
   const store = useStore()
-  const {resGet, myGet} = useMyGet()
+  const {resGet, myGet} = useMyFetch()
   console.log('store :', store.state.cart)
   myGet('http://localhost:3000/products')
-
-  const addCart = async (idProduct) => {
+  const addCart = (idProduct) => {
     console.log('[products]:',store.state.products)
     store.commit('addCart')
-    const product = await myGet(`http://localhost:3000/products/${idProduct}`)
-    store.commit('saveProduct', product)
+    store.commit('saveProduct', idProduct)
+    //await myGet(`http://localhost:3000/products/${idProduct}`)
+    
     console.log('[products]:',store.state.products)
     Swal.fire({
       icon: 'success',
       title: 'Merci',
       text: 'Cet article est bien ajouté à votre panier',
-      })
-    console.log('id product: ',idProduct)
+    })
+      console.log('id product: ',idProduct)
   }
 </script>
 
 <style lang="scss" scoped>
   ul {
-    border: 1px solid green;
+    border: 1px solid blue;
     margin:4% auto;
     padding:1%;
     list-style: none;
     max-width: 60%;
     & strong {
-      color: rgb(43, 118, 43);
+      color: blue;
     }
     button {
       border-radius: 5px;
-      background-color: green;
+      background-color: rgb(0, 187, 255);
       color: white;
       padding:1%;
       &:active {
         color: black;
-        background-color: whitesmoke;
+        background-color: white;
       }
     }
   }
