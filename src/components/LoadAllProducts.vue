@@ -1,6 +1,5 @@
 <template>
   <div>
-      <p> <pre>{{ this.$store.state.products }}</pre> </p>
     <ul v-for="res in resGet" :key="res.id">
       <li> <h2>{{ res.label }}</h2></li>
       <li><strong> {{ res.price/100 }} €</strong> </li>
@@ -17,7 +16,6 @@
   import Swal from 'sweetalert2'
   import { useStore } from 'vuex'
   import useMyFetch from '@/composables/useMyFetchHelpers'
-  //import {ref} from 'vue'
   const store = useStore()
   const {resGet, myGet} = useMyFetch()
   console.log('store :', store.state.cart)
@@ -26,7 +24,6 @@
     console.log('[products]:',store.state.products)
     store.commit('addCart')
     store.commit('saveProduct', idProduct)
-    //await myGet(`http://localhost:3000/products/${idProduct}`)
     
     console.log('[products]:',store.state.products)
     Swal.fire({
@@ -34,19 +31,19 @@
       title: 'Merci',
       text: 'Cet article est bien ajouté à votre panier',
     })
-      console.log('id product: ',idProduct)
   }
 </script>
 
 <style lang="scss" scoped>
   ul {
-    border: 1px solid blue;
+    border: 3px solid rgb(0, 174, 255);
     margin:4% auto;
     padding:1%;
     list-style: none;
     max-width: 60%;
+    background-color: whitesmoke;
     & strong {
-      color: blue;
+      color: rgb(0, 106, 255);
     }
     button {
       border-radius: 5px;

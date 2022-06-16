@@ -7,27 +7,39 @@
         <summary>Détails de ce produit</summary>
         <p> {{ res.description }} </p>
         <p class="prices"><strong> {{ res.price/100 }} €</strong></p>
-        <router-link to="/"
-        >
-          <button>Ajouter Au Panier</button>
-        </router-link>
+        <p>id produit : {{ res.id }} </p>
+        <button @click="addCart(res.id)">Ajouter Au Panier</button>
       </details>
       </li>
   </ul>
 </template>
 
 <script setup>
-import  useMyFetch from '@/composables/useMyFetchHelpers'
-import { useRoute }  from 'vue-router'
+  import Swal from 'sweetalert2'
+  import { useStore } from 'vuex'
+  import  useMyFetch from '@/composables/useMyFetchHelpers'
+  import { useRoute }  from 'vue-router'
+  const store = useStore()
+  const route = useRoute()
+  const idcat = route.params.idcat
+  const cat = route.params.cat
 
-const route = useRoute()
-const idcat = route.params.idcat
-const cat = route.params.cat
-console.log('idcat :', idcat)
-console.log(idcat)
-const { resGet, myGet} = useMyFetch()
-console.log(resGet)
-myGet(`http://localhost:3000/products-category/${idcat}`)
+  const addCart = (idProduct) => {
+    console.log('[products]:',store.state.products)
+    store.commit('addCart')
+    store.commit('saveProduct', idProduct)
+    
+    console.log('[products]:',store.state.products)
+    Swal.fire({
+      icon: 'success',
+      title: 'Merci',
+      text: 'Cet article est bien ajouté à votre panier',
+    })
+      console.log('id product: ',idProduct)
+  }
+
+  const { resGet, myGet} = useMyFetch()
+  myGet(`http://localhost:3000/products-category/${idcat}`)
 </script>
 
 <style lang="scss" scoped>
@@ -39,6 +51,7 @@ myGet(`http://localhost:3000/products-category/${idcat}`)
     border: 3px solid rgb(57, 189, 206);
     border-radius: 5px;
     list-style: none;
+    background-color: whitesmoke;
     & li {
       margin: 4%;
     }

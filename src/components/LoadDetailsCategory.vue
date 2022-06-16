@@ -1,16 +1,14 @@
 <template>
+   <h2> {{ resGet.label}} </h2>
    <ul class="categories">
     <li>
-      <h2> {{ resGet.label}} </h2>
       <details open>
         <summary><strong>{{ resGet.label }}</strong></summary>
         <p> {{ resGet.description }} </p>
-        <p>Id de categorie:  {{ resGet.id }}</p>
-
-       <router-link :to="{
-          name: 'AllProductsInCategory', 
-          params:{ idcat: resGet.id, cat: resGet.label}
-          }"
+        <router-link :to="{
+            name: 'AllProductsInCategory', 
+            params:{ idcat: resGet.id, cat: resGet.label}
+            }"
         >
           <button>Voir Tous Les  {{resGet.label}}</button>
         </router-link>
@@ -36,14 +34,13 @@
     max-width: 70%;
     margin: 3% auto;
     padding:1%;
-    border: 2px solid rgb(57, 189, 206);
+    border: 3px solid rgb(57, 189, 206);
     border-radius: 5px;
     list-style: none;
+    background-color: whitesmoke;
+    box-shadow: 17px 17px 8px 8px rgba(3, 94, 102, 0.2);
     & li {
       margin: 4%;
-    }
-    &:hover {
-      box-shadow: 12px 12px 2px 1px rgba(3, 94, 102, 0.2);
     }
     & p {
       margin: 2%;
@@ -57,6 +54,10 @@
       padding: 1%;
       &:hover {
         cursor: pointer;
+      }
+      &:active {
+        background-color: rgb(165, 239, 165);
+        color: black;
       }
     }
     

@@ -4,14 +4,11 @@
     <p>
       Vous trouverez ici tous les éléments dont vous avez besoin, n'hésitez à vous inscrire pour sur la page <router-link to="/login">Login</router-link> pour une meilleur expérience utilisateur. 
     </p>
+    <img src="@/assets/images/air.png">
   </div>
 </template>
 
 <script setup>
-  /*const props = defineProps({
-    msg: String
-  })*/
-  
 
 </script>
 <script>

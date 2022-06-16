@@ -1,7 +1,7 @@
 <template>
   <MyHeader />
   <MyNav />
-  <p>Voici notre catalgue, en vous souhaitant une bonne navigation sur notre market place.</p>
+  <p>Voici notre catalgue, vous trouverez ici, toutes les catégiries de produits que nous vous proposons. En vous souhaitant une bonne navigation sur notre market place.</p>
   <Suspense>
     <template #default>
       <LoadCatalog />

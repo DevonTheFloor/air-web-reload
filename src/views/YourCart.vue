@@ -21,20 +21,12 @@
   const { resGet, myGet } = useMyFetch()
   const store = useStore()
   const nombre = computed(() => store.state.cart)
-  const plusri = computed(()=> nombre.value < 1 ? 's' : ' ')
   const productsList = store.state.products
 
   const panier = []
-/*const init = { 
-    method: 'POST',
-    body: fd,
-    mode: 'cors',
-    cache: 'default' 
-  }*/
+
   myGet(`http://localhost:3000/mycart/[${productsList}]`)
-  console.log('res get :', resGet.value)
   panier.push(resGet)
-  console.log('panier :', panier)
 
 </script>
 

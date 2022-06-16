@@ -2,7 +2,7 @@
   <ul v-for="res in resGet" :key="res" class="categories">
     <li>
       <summary></summary>
-      <h2>{{ res.label }}</h2>
+      <h3>{{ res.label }}</h3>
       <router-link :to="{
         name: 'DetailsCategory', 
         params:{id: res.id}
@@ -25,12 +25,12 @@ console.log('res get :', resGet.value)
 <style lang="scss" scoped>
 
   .categories {
-    max-width: 70%;
-    margin: 3% auto;
-    padding:1%;
-    border: 2px solid rgb(57, 189, 206);
+    max-width: 60%;
+    margin: 2% auto;
+    border: 3px solid rgb(57, 189, 206);
     border-radius: 5px;
     list-style: none;
+    background-color: whitesmoke;
     & li {
       margin: 4%;
     }
